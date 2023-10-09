@@ -5,25 +5,26 @@ const SODA_PRICE = 2.50;
 const TAX_RATE = 0.0625; // 6.25%
 
 /*
-formatcurrecy()
+formatCurrecy()
 Parameters: amount (number) to turn into currency
 Returns: formatted currency string
 Purpose: formats with two decimals per spec
 */
-function formatcurrency(amount) {
+function formatCurrency(amount) {
     // Round the amount
-    const roundedamount = Math.round(amount * 100) / 100;
+    const roundedAmount = Math.round(amount * 100) / 100;
 
     // Convert to string
-    const amountstring = roundedamount.toString();
+    const amountString = roundedAmount.toString();
 
     // Check if the string has two decimal places
-    if (amountstring.indexOf('.') === -1) {
-        return '$' + amountstring + '.00'; // If no decimal part
+    if (amountString.indexOf('.') === -1) {
+        return '$' + amountString + '.00'; // If no decimal part
     } else {
-        return '$' + amountstring; // If existing decimal places
+        return '$' + amountString; // If existing decimal places
     }
 }
+
 
 /*
 calculateorder()
@@ -55,13 +56,13 @@ function calculateorder() {
 
     // Generate the HTML for order details
     const orderDetailsHTML = `
-        <p>Hotdogs: ${numDogs} x ${formatcurrency(HOTDOG_PRICE)} = ${formatcurrency(numDogs * HOTDOG_PRICE)}</p>
-        <p>French Fries: ${numFries} x ${formatcurrency(FRIES_PRICE)} = ${formatcurrency(numFries * FRIES_PRICE)}</p>
-        <p>Drinks: ${numSodas} x ${formatcurrency(SODA_PRICE)} = ${formatcurrency(numSodas * SODA_PRICE)}</p>
-        <p>Subtotal: ${formatcurrency(subtotal)}</p>
-        <p>Discount: ${formatcurrency(discount)}</p>
-        <p>Tax: ${formatcurrency(taxAmount)}</p>
-        <h3>Total: ${formatcurrency(finalTotal)}</h3>
+        <p>Hotdogs: ${numDogs} x ${formatCurrency(HOTDOG_PRICE)} = ${formatCurrency(numDogs * HOTDOG_PRICE)}</p>
+        <p>French Fries: ${numFries} x ${formatCurrency(FRIES_PRICE)} = ${formatCurrency(numFries * FRIES_PRICE)}</p>
+        <p>Drinks: ${numSodas} x ${formatCurrency(SODA_PRICE)} = ${formatCurrency(numSodas * SODA_PRICE)}</p>
+        <p>Subtotal: ${formatCurrency(subtotal)}</p>
+        <p>Discount: ${formatCurrency(discount)}</p>
+        <p>Tax: ${formatCurrency(taxAmount)}</p>
+        <h3>Total: ${formatCurrency(finalTotal)}</h3>
     `;
 
     // Set the HTML content of the order details div
