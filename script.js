@@ -10,8 +10,6 @@ Parameters: amount (number) to turn into currency
 Returns: formatted currency string
 Purpose: formats with two decimals per spec
 */
-// Function to format currency
-// Function to format currency
 function formatCurrency(amount) {
     // Round the amount to two decimal places
     const roundedAmount = Math.round(amount * 100) / 100;
@@ -19,20 +17,20 @@ function formatCurrency(amount) {
     // Convert to a string
     const amountString = roundedAmount.toString();
 
-    // Split the string by the decimal point
+    // Split the string 
     const parts = amountString.split('.');
 
-    // If there's no decimal part, add '.00'
+    // If no decimal part add .00
     if (parts.length === 1) {
         return '$' + amountString + '.00';
     }
 
-    // If there's one decimal place, add an additional zero
+    // If one decimal part add a zero
     if (parts[1].length === 1) {
         return '$' + amountString + '0';
     }
 
-    // Otherwise, use the existing decimal places
+    // If two decimal parts
     return '$' + amountString;
 }
 
