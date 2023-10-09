@@ -10,19 +10,23 @@ Parameters: amount (number) to turn into currency
 Returns: formatted currency string
 Purpose: formats with two decimals per spec
 */
+// Function to format currency
 function formatCurrency(amount) {
-    // Round the amount
+    // Round the amount to two decimal places
     const roundedAmount = Math.round(amount * 100) / 100;
 
-    // Convert to string
-    const amountString = roundedAmount.toString();
+    // Convert to a string
+    let amountString = roundedAmount.toString();
 
-    // Check if the string has two decimal places
+    // Check if the string already has a decimal point
     if (amountString.indexOf('.') === -1) {
-        return '$' + amountString + '.00'; // If no decimal part
-    } else {
-        return '$' + amountString; // If existing decimal places
+        amountString += '.00'; // Add '.00' if no decimal part
+    } else if (amountString.indexOf('.') === amountString.length - 2) {
+        amountString += '0'; // Add one trailing zero if there's only one decimal place
     }
+
+    // Add '$' symbol and return
+    return '$' + amountString;
 }
 
 
