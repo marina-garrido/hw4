@@ -10,31 +10,20 @@ Parameters: amount (number) to turn into currency
 Returns: formatted currency string
 Purpose: formats with two decimals per spec
 */
-function formatCurrency(amount) {
-    // Round the amount to two decimal places
-    const roundedAmount = Math.round(amount * 100) / 100;
+function formatcurrency(amount) {
+    // Round the amount
+    const roundedamount = Math.round(amount * 100) / 100;
 
-    // Convert to a string
-    const amountString = roundedAmount.toString();
+    // Convert to string
+    const amountstring = roundedamount.toString();
 
-    // Check if the string already has two decimal places
-    if (amountString.indexOf('.') === -1) {
-        // If no decimal part, add '.00'
-        return '$' + amountString + '.00';
+    // Check if the string has two decimal places
+    if (amountstring.indexOf('.') === -1) {
+        return '$' + amountstring + '.00'; // If no decimal part
     } else {
-        // Split the string into parts
-        const parts = amountString.split('.');
-        
-        // If there's only one digit after the decimal point, add a '0'
-        if (parts[1].length === 1) {
-            parts[1] += '0';
-        }
-
-        // Join the parts back together with a '.'
-        return '$' + parts.join('.');
+        return '$' + amountstring; // If existing decimal places
     }
 }
-
 
 /*
 calculateorder()
@@ -78,4 +67,5 @@ function calculateorder() {
     // Set the HTML content of the order details div
     orderDetailsDiv.innerHTML = orderDetailsHTML;
 }
+
 
