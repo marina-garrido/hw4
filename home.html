@@ -58,20 +58,21 @@
         const TAX_RATE = 0.0625; // 6.25%
 
         // Function to format currency
-        function formatCurrency(amount) {
-            // Round the amount to two decimal places
-            const roundedAmount = Math.round(amount * 100) / 100;
+function formatCurrency(amount) {
+    // Round the amount to two decimal places
+    const roundedAmount = Math.round(amount * 100) / 100;
 
-            // Convert to a string
-            const amountString = roundedAmount.toString();
+    // Convert to a string
+    const amountString = roundedAmount.toString();
 
-            // Check if the string already has two decimal places
-            if (amountString.indexOf('.') === -1) {
-                return '$' + amountString + '.00'; // Add '.00' if no decimal part
-            } else {
-                return '$' + amountString; // Use the existing decimal places
-            }
-        }
+    // Check if the string already has two decimal places
+    if (amountString.indexOf('.') === -1) {
+        return '$' + amountString + '.00'; // Add '.00' if no decimal part
+    } else {
+        return '$' + amountString; // Use the existing decimal places
+    }
+}
+
 
         // Function to calculate and display the order
         function calculateOrder() {
