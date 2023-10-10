@@ -57,23 +57,29 @@
         const SODA_PRICE = 2.50;
         const TAX_RATE = 0.0625; // 6.25%
 
-        // Function to format currency
         function formatCurrency(amount) {
-            const rounding = (Math.round(value * 100)/100);
-            const numZeros = rounding.toString();
-            const pt = numZeros.split(".");
-
-            if (pt.length === 1) {
-                return '$' + numZeros + ".00";
-            }
-
-            if (pt[1].length === 1) {
-                return '$' + numZeros + "0";
-            }
-
-            return "$" + rounding;
-        }
+            // Round the amount to two decimal places
+            const roundedAmount = Math.round(amount * 100) / 100;
         
+            // Convert to a string
+            const amountString = roundedAmount.toString();
+        
+            // Split the string into parts
+            const parts = amountString.split('.');
+        
+            // Check if there's no decimal part
+            if (parts.length === 1) {
+                return '$' + amountString + '.00'; // Add '.00' if no decimal part
+            } else {
+                // Check if there's only one digit after the decimal point
+                if (parts[1].length === 1) {
+                    return '$' + amountString + '0'; // Add '0' if there's only one digit after the decimal point
+                } else {
+                    return '$' + amountString; // Use the existing decimal places
+                }
+            }
+        }
+
 
 
 
